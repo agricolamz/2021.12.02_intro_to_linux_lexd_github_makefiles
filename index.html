@@ -265,7 +265,7 @@ div.tocify {
 <div id="bash" class="section level2" number="1.1">
 <h2 number="1.1"><span class="header-section-number">1.1</span> <code>bash</code></h2>
 <p>Когда вы открываете линуксовскую командную строку, чаще всего вы сталкиваетесь с интерпретатором <code>bash</code> – это такая командная оболочка, которая позволяет отдавать команды вашей операционной системе и компьютеру.</p>
-<pre class="bash"><code>&gt; echo &quot;hi all&quot;</code></pre>
+<pre class="bash"><code>$ echo &quot;hi all&quot;</code></pre>
 <pre><code>hi all</code></pre>
 <p>Разумеется, когда дело доходит до больших и сложных программ, то их записывают в скрипты, которым обычно дают расширение <code>.sh</code> и начинают с <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">шебанга</a>. Вот пример простой программы:</p>
 <pre class="my_program.sh"><code>#!/bin/bash
@@ -274,53 +274,58 @@ echo &quot;Please enter your name: &quot;
 read name
 echo &quot;Nice to meet you $name&quot;</code></pre>
 <p>Если вы запишите эту программу в файл <code>my_script.sh</code>, то ее потом можно вызвать следующей командой</p>
-<pre class="bash"><code>&gt; sh my_script.sh</code></pre>
+<pre class="bash"><code>$ sh my_script.sh</code></pre>
 <p>В интернете много ресурсов для изучения <code>bash</code>, но вам не придется писать на нем программ (но придется запускать), так что посвящать время его дальнейшому изучению – дело исключительно добровольное.</p>
 </div>
 <div id="консольные-программы" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Консольные программы</h2>
 <p>Для <code>bash</code> написано очень много самых разных программ. Важно понимать, что их все (естественно, после установки, если это необходимо) можно вызвать набрав в консоли название программы. Очень важно понимать, что у большинства программ есть какие-то аргументы (почему-то их принято называть флагами), которые перечисляют после минуса.</p>
-<pre class="bash"><code>&gt; ls</code></pre>
+<pre class="bash"><code>$ ls</code></pre>
 <pre><code>index.html
 index.Rmd</code></pre>
-<pre class="bash"><code>&gt; ls -l</code></pre>
-<pre><code>total 732
--rw-rw-r-- 1 agricolamz agricolamz 738515 дек  1 10:06 index.html
--rw-rw-r-- 1 agricolamz agricolamz   5493 дек  1 10:09 index.Rmd</code></pre>
+<pre class="bash"><code>$ ls -l</code></pre>
+<pre><code>total 1044
+-rw-rw-r-- 1 agricolamz agricolamz 1056958 дек  1 20:11 index.html
+-rw-rw-r-- 1 agricolamz agricolamz    7299 дек  1 20:37 index.Rmd</code></pre>
 <p>Флагов может быть больше одного:</p>
-<pre class="bash"><code>&gt; ls -l -a -h</code></pre>
-<pre><code>total 756K
-drwxrwxr-x   2 agricolamz agricolamz 4,0K дек  1 10:06 .
+<pre class="bash"><code>$ ls -l -a -h</code></pre>
+<pre><code>total 1,1M
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  1 20:11 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
--rw-rw-r--   1 agricolamz agricolamz 722K дек  1 10:06 index.html
--rw-rw-r--   1 agricolamz agricolamz 5,4K дек  1 10:09 index.Rmd</code></pre>
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  1 10:11 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  1 20:11 index.html
+-rw-rw-r--   1 agricolamz agricolamz 7,2K дек  1 20:37 index.Rmd</code></pre>
 <p>Флаги можно смешать:</p>
-<pre class="bash"><code>&gt; ls -lah</code></pre>
-<pre><code>total 756K
-drwxrwxr-x   2 agricolamz agricolamz 4,0K дек  1 10:06 .
+<pre class="bash"><code>$ ls -lah</code></pre>
+<pre><code>total 1,1M
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  1 20:11 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
--rw-rw-r--   1 agricolamz agricolamz 722K дек  1 10:06 index.html
--rw-rw-r--   1 agricolamz agricolamz 5,4K дек  1 10:09 index.Rmd</code></pre>
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  1 10:11 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  1 20:11 index.html
+-rw-rw-r--   1 agricolamz agricolamz 7,2K дек  1 20:37 index.Rmd</code></pre>
 <p>Флаги можно еще смешать:</p>
-<pre class="bash"><code>&gt; ls -hla</code></pre>
-<pre><code>total 756K
-drwxrwxr-x   2 agricolamz agricolamz 4,0K дек  1 10:06 .
+<pre class="bash"><code>$ ls -hla</code></pre>
+<pre><code>total 1,1M
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  1 20:11 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
--rw-rw-r--   1 agricolamz agricolamz 722K дек  1 10:06 index.html
--rw-rw-r--   1 agricolamz agricolamz 5,4K дек  1 10:09 index.Rmd</code></pre>
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  1 10:11 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  1 20:11 index.html
+-rw-rw-r--   1 agricolamz agricolamz 7,2K дек  1 20:37 index.Rmd</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
-<pre class="bash"><code>&gt; ls --all</code></pre>
+<pre class="bash"><code>$ ls --all</code></pre>
 <pre><code>.
 ..
+.git
 index.html
 index.Rmd</code></pre>
-<pre class="bash"><code>&gt; ls -a</code></pre>
+<pre class="bash"><code>$ ls -a</code></pre>
 <pre><code>.
 ..
+.git
 index.html
 index.Rmd</code></pre>
 <p>Чтобы узнать какие у программы есть флаги, чаще всего можно либо добавить флаг <code>--help</code>, либо использовать программу <code>man</code>. Еще есть полезная программа <code>tldr</code>, которая дает краткое саммари и примеры, однако она требует установки.</p>
-<pre class="bash"><code>&gt; tldr ls</code></pre>
+<pre class="bash"><code>$ tldr ls</code></pre>
 <pre><code>ls
 List directory contents.
 
@@ -344,10 +349,85 @@ List directory contents.
 
  - Long format list of all files, sorted by modification date (oldest first):
    ls -ltr</code></pre>
+<p>При этом <code>python</code> или <code>R</code> интерпретаторы — это такие же программы.</p>
+<pre class="bash"><code>$ python -c &quot;print unichr(234)&quot;</code></pre>
+<pre><code>ê</code></pre>
+<pre class="bash"><code>$ R --silent -e &quot;Sys.Date()&quot;</code></pre>
+<pre><code>&gt; Sys.Date()
+[1] &quot;2021-12-01&quot;
+&gt; 
+&gt; </code></pre>
 </div>
 </div>
 <div id="введение-в-lexd" class="section level1" number="2">
 <h1 number="2"><span class="header-section-number">2</span> Введение в <code>lexd</code></h1>
+<p><a href="https://github.com/apertium/lexd"><code>lexd</code></a> — это программа для описания морфонологии языка, разработанная в <a href="https://apertium.org">apertium</a> (для этой цели также используют программы <a href="https://wiki.apertium.org/wiki/Lttoolbox_and_lexc"><code>lexc</code> и <code>lttoolbox</code></a>).</p>
+<div id="установка" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Установка</h2>
+<p>Программу можно установить следующим образом:</p>
+<pre class="bash"><code>$ wget https://apertium.projectjj.com/apt/install-nightly.sh -O - | sudo bash
++ sudo apt-get install lexd</code></pre>
+</div>
+<div id="пример-использования" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Пример использования</h2>
+<p>Давайте попробуем смоделировать следующие данные:</p>
+<table>
+<thead>
+<tr class="header">
+<th>cyryllic</th>
+<th>IPA</th>
+<th>gloss</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>берка</td>
+<td>berka</td>
+<td>змея-ABS</td>
+</tr>
+<tr class="even">
+<td>берку-ди</td>
+<td>berku-di</td>
+<td>змея.OBL-ERG</td>
+</tr>
+<tr class="odd">
+<td>берку-хъи</td>
+<td>berku-qχi</td>
+<td>змея.OBL-INSTR</td>
+</tr>
+<tr class="even">
+<td>берку-лIи</td>
+<td>berku-tɬ’i</td>
+<td>змея.OBL-SUB-ESSIVE</td>
+</tr>
+<tr class="odd">
+<td>берку-лIи</td>
+<td>berku-tɬ’i</td>
+<td>змея.OBL-SUB-LATIVE</td>
+</tr>
+<tr class="even">
+<td>берку-лIи-кку</td>
+<td>berku-tɬ’i-kːu</td>
+<td>змея.OBL-SUB-ELATIVE</td>
+</tr>
+<tr class="odd">
+<td>берку-ъа</td>
+<td>berku-ʔa</td>
+<td>змея.OBL-SUPER-ESSIVE</td>
+</tr>
+<tr class="even">
+<td>берку-ъо</td>
+<td>berku-ʔo</td>
+<td>змея.OBL-SUPER-LATIVE</td>
+</tr>
+<tr class="odd">
+<td>берку-ъа-кку</td>
+<td>berku-ʔa-kːu</td>
+<td>змея.OBL-SUPER-ELATIVE</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="введение-в-git" class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> Введение в <code>git</code></h1>

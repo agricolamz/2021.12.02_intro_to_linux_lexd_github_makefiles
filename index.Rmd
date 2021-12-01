@@ -12,7 +12,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "", prompt = TRUE)
+library('knitr')
+knit_hooks$set(prompt = function(before, options, envir) {options(prompt = "$ ")})
+opts_chunk$set(comment = "", prompt = TRUE)
 ```
 
 Название этих материалов может выглядеть немного слишком амбициозным, однако, надеюсь все понимают, что все, что перечислено в заглавии является отдельной большой сложной темой, знание в которой вы можете (скорее всего даже вам придется) углубить самостоятельно.
@@ -132,7 +134,45 @@ List directory contents.
    ls -ltr
 ```
 
+При этом `python` или `R` интерпретаторы --- это такие же программы.
+
+```{bash}
+python -c "print unichr(234)"
+```
+
+```{bash}
+R --silent -e "Sys.Date()"
+```
+
 # Введение в `lexd`
+
+[`lexd`](https://github.com/apertium/lexd) --- это программа для описания морфонологии языка, разработанная в [apertium](https://apertium.org) (для этой цели также используют программы [`lexc` и `lttoolbox`](https://wiki.apertium.org/wiki/Lttoolbox_and_lexc)).
+
+## Установка
+
+Программу можно установить следующим образом:
+
+```{bash, eval = FALSE}
+wget https://apertium.projectjj.com/apt/install-nightly.sh -O - | sudo bash
+sudo apt-get install lexd
+```
+
+## Пример использования
+
+Давайте попробуем смоделировать следующие данные:
+
+| cyryllic      | IPA            | gloss                  |
+|---------------|----------------|------------------------|
+| берка         | berka          | змея-ABS               |
+| берку-ди      | berku-di       | змея.OBL-ERG           |
+| берку-хъи     | berku-qχi      | змея.OBL-INSTR         |
+| берку-лIи     | berku-tɬ’i     | змея.OBL-SUB-ESSIVE    |
+| берку-лIи     | berku-tɬ’i     | змея.OBL-SUB-LATIVE    |
+| берку-лIи-кку | berku-tɬ’i-kːu | змея.OBL-SUB-ELATIVE   |
+| берку-ъа      | berku-ʔa       | змея.OBL-SUPER-ESSIVE  |
+| берку-ъо      | berku-ʔo       | змея.OBL-SUPER-LATIVE  |
+| берку-ъа-кку  | berku-ʔa-kːu   | змея.OBL-SUPER-ELATIVE |
+
 
 # Введение в `git`
 
