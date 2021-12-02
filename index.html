@@ -274,7 +274,7 @@ echo &quot;Please enter your name: &quot;
 read name
 echo &quot;Nice to meet you $name&quot;</code></pre>
 <p>Если вы запишите эту программу в файл <code>my_script.sh</code>, то ее потом можно вызвать следующей командой</p>
-<pre class="bash"><code>$ sh my_script.sh</code></pre>
+<pre class="bash"><code>$ my_script.sh</code></pre>
 <p>В интернете много ресурсов для изучения <code>bash</code>, но вам не придется писать на нем программ (но придется запускать), так что посвящать время его дальнейшому изучению – дело исключительно добровольное.</p>
 </div>
 <div id="консольные-программы" class="section level2" number="1.2">
@@ -288,38 +288,38 @@ Makefile</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
 <pre><code>total 1136
 -rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1136983 дек  2 17:20 index.html
--rw-rw-r-- 1 agricolamz agricolamz   15560 дек  2 17:21 index.Rmd
+-rw-rw-r-- 1 agricolamz agricolamz 1137285 дек  2 17:26 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   15801 дек  2 17:31 index.Rmd
 -rw-rw-r-- 1 agricolamz agricolamz     140 дек  2 15:28 Makefile</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:20 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:26 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 16:21 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:20 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:21 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:22 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:26 index.html
+-rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:31 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:20 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:26 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 16:21 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:20 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:21 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:22 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:26 index.html
+-rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:31 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:20 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:26 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 16:21 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:20 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:21 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:22 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:26 index.html
+-rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:31 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
@@ -633,7 +633,9 @@ and.noun.generator.hfst: and.noun.lexd
 </div>
 <div id="создание-совего-репозитория" class="section level2" number="4.3">
 <h2 number="4.3"><span class="header-section-number">4.3</span> Создание совего репозитория</h2>
-<p>Сначала нужно создать</p>
+<p>Сначала нужно создать репозиторий, потом следует пойти в папку с вашим проектом, и нужно сказать</p>
+<pre class="bash"><code>$ git init</code></pre>
+<pre><code>Initialized empty Git repository in /your/directory/foo/.git/</code></pre>
 </div>
 </div>
 <div class="footnotes">
