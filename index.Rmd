@@ -185,8 +185,8 @@ sudo apt-get install lexd
 PATTERNS
 NounAbs Abs
 NounObl NounInfl
-NounObl NounInflE__ive
-NounObl NounInflE__ive Elative
+NounObl NounInflEssive
+NounObl NounInflEssive Elative
 
 LEXICON NounAbs
 берка # змея
@@ -204,7 +204,7 @@ LEXICON NounInfl
 
 <n><obl><super><lative>:ъо
 
-LEXICON NounInflE__ive
+LEXICON NounInflEssive
 <n><obl><super><essive>:ъа
 <n><obl><sub><essive>:лIи
 
@@ -237,16 +237,16 @@ hfst-fst2strings and.noun.generator.hfst
 echo 'берка<n><obl><sub><lative>' | hfst-lookup and.noun.generator.hfst
 ```
 
-Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно иинвертировать:
+Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно инвертировать:
 
 ```{bash}
-hfst-invert and.noun.generator.hfst -o and.noun.analizer.hfst
+hfst-invert and.noun.generator.hfst -o and.noun.analyzer.hfst
 ```
 
 И теперь мы можем получить анализ:
 
 ```{bash}
-echo 'беркулIи' | hfst-lookup and.noun.analizer.hfst
+echo 'беркулIи' | hfst-lookup and.noun.analyzer.hfst
 ```
 
 Читая [туториал к lexd](https://github.com/apertium/lexd/blob/master/Usage.md), можно найти несколько способов оптимизировать наш исходный код:
@@ -298,8 +298,8 @@ target: dependency1 dependency2 ...
 Пожалуйста, обратите внимание, что перед скриптом стоит один таб (ваш текстовый редактор может заменить его на пробелы). Мы можем написать соответсвующий файл для наших нужд:
 
 ```Makefile
-and.noun.analizer.hfst: and.noun.generator.hfst
-   hfst-invert and.noun.generator.hfst -o and.noun.analizer.hfst
+and.noun.analyzer.hfst: and.noun.generator.hfst
+   hfst-invert and.noun.generator.hfst -o and.noun.analyzer.hfst
 
 and.noun.generator.hfst: and.noun.lexd
    lexd and.noun.lexd | hfst-txt2fst -o and.noun.generator.hfst
@@ -307,7 +307,7 @@ and.noun.generator.hfst: and.noun.lexd
 
 Давайте удалим наши два файла:
 ```{bash}
-rm and.noun.generator.hfst and.noun.analizer.hfst
+rm and.noun.generator.hfst and.noun.analyzer.hfst
 ```
 
 Посмотрим на список файлов:
@@ -342,7 +342,7 @@ make and.noun.generator.hfst
 Тогда наш `Makefile` можно переписать следующим образом:
 
 ```Makefile
-and.noun.analizer.hfst: and.noun.generator.hfst
+and.noun.analyzer.hfst: and.noun.generator.hfst
    hfst-invert $< -o $@
 
 and.noun.generator.hfst: and.noun.lexd
@@ -380,6 +380,7 @@ git init
 Initialized empty Git repository in /your/directory/foo/.git/
 ```
 
+Теперь нужно добавить 
 
 
 

@@ -288,38 +288,38 @@ Makefile</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
 <pre><code>total 1136
 -rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1137285 дек  2 17:26 index.html
--rw-rw-r-- 1 agricolamz agricolamz   15801 дек  2 17:31 index.Rmd
+-rw-rw-r-- 1 agricolamz agricolamz 1137282 дек  2 17:31 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   15841 дек  2 17:39 index.Rmd
 -rw-rw-r-- 1 agricolamz agricolamz     140 дек  2 15:28 Makefile</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:26 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:31 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:22 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:26 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:31 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:31 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:31 index.html
+-rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:39 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:26 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:31 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:22 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:26 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:31 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:31 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:31 index.html
+-rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:39 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:26 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:31 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:22 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:26 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:31 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:31 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:31 index.html
+-rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:39 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
@@ -449,8 +449,8 @@ index.Rmd</code></pre>
 <pre class="and.noun.lexd"><code>PATTERNS
 NounAbs Abs
 NounObl NounInfl
-NounObl NounInflE__ive
-NounObl NounInflE__ive Elative
+NounObl NounInflEssive
+NounObl NounInflEssive Elative
 
 LEXICON NounAbs
 берка # змея
@@ -468,7 +468,7 @@ LEXICON NounInfl
 
 &lt;n&gt;&lt;obl&gt;&lt;super&gt;&lt;lative&gt;:ъо
 
-LEXICON NounInflE__ive
+LEXICON NounInflEssive
 &lt;n&gt;&lt;obl&gt;&lt;super&gt;&lt;essive&gt;:ъа
 &lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;essive&gt;:лIи
 
@@ -522,10 +522,10 @@ Using HFST basic transducer format and performing slow lookups
 &gt; берка&lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;lative&gt;    беркулIи    0,000000
 
 &gt; </code></pre>
-<p>Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно иинвертировать:</p>
-<pre class="bash"><code>$ hfst-invert and.noun.generator.hfst -o and.noun.analizer.hfst</code></pre>
+<p>Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно инвертировать:</p>
+<pre class="bash"><code>$ hfst-invert and.noun.generator.hfst -o and.noun.analyzer.hfst</code></pre>
 <p>И теперь мы можем получить анализ:</p>
-<pre class="bash"><code>$ echo &#39;беркулIи&#39; | hfst-lookup and.noun.analizer.hfst</code></pre>
+<pre class="bash"><code>$ echo &#39;беркулIи&#39; | hfst-lookup and.noun.analyzer.hfst</code></pre>
 <pre><code>hfst-lookup: warning: It is not possible to perform fast lookups with OpenFST, std arc, tropical semiring format automata.
 Using HFST basic transducer format and performing slow lookups
 &gt; беркулIи  берка&lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;essive&gt;  0,000000
@@ -574,13 +574,13 @@ LEXICON Elative
 <pre class="makefile"><code>target: dependency1 dependency2 ...
    &lt;script&gt;</code></pre>
 <p>Пожалуйста, обратите внимание, что перед скриптом стоит один таб (ваш текстовый редактор может заменить его на пробелы). Мы можем написать соответсвующий файл для наших нужд:</p>
-<pre class="makefile"><code>and.noun.analizer.hfst: and.noun.generator.hfst
-   hfst-invert and.noun.generator.hfst -o and.noun.analizer.hfst
+<pre class="makefile"><code>and.noun.analyzer.hfst: and.noun.generator.hfst
+   hfst-invert and.noun.generator.hfst -o and.noun.analyzer.hfst
 
 and.noun.generator.hfst: and.noun.lexd
    lexd and.noun.lexd | hfst-txt2fst -o and.noun.generator.hfst</code></pre>
 <p>Давайте удалим наши два файла:</p>
-<pre class="bash"><code>$ rm and.noun.generator.hfst and.noun.analizer.hfst</code></pre>
+<pre class="bash"><code>$ rm and.noun.generator.hfst and.noun.analyzer.hfst</code></pre>
 <p>Посмотрим на список файлов:</p>
 <pre class="bash"><code>$ ls</code></pre>
 <pre><code>and.noun.lexd
@@ -610,7 +610,7 @@ Makefile</code></pre>
 <li><code>$&lt;</code> (the first dependency).</li>
 </ul>
 <p>Тогда наш <code>Makefile</code> можно переписать следующим образом:</p>
-<pre class="makefile"><code>and.noun.analizer.hfst: and.noun.generator.hfst
+<pre class="makefile"><code>and.noun.analyzer.hfst: and.noun.generator.hfst
    hfst-invert $&lt; -o $@
 
 and.noun.generator.hfst: and.noun.lexd
@@ -636,6 +636,7 @@ and.noun.generator.hfst: and.noun.lexd
 <p>Сначала нужно создать репозиторий, потом следует пойти в папку с вашим проектом, и нужно сказать</p>
 <pre class="bash"><code>$ git init</code></pre>
 <pre><code>Initialized empty Git repository in /your/directory/foo/.git/</code></pre>
+<p>Теперь нужно добавить</p>
 </div>
 </div>
 <div class="footnotes">
