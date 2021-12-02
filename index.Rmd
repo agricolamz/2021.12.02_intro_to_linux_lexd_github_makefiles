@@ -380,9 +380,28 @@ git init
 Initialized empty Git repository in /your/directory/foo/.git/
 ```
 
-Теперь нужно добавить 
+Теперь можно добавить все файлы в индекс `git`: 
+```{bash, eval = FALSE}
+git add --all
+```
 
+Теперь можно отправить файлы с некоторым сообщением про изменения:
 
+```{bash, eval = FALSE}
+git commit -m "first commit"
+```
+
+После этого следует связать ваш локальный репозиторий на компьютере с репозиторием на гитхабе:
+
+```{bash, eval = FALSE}
+git remote add origin https://github.com/YOUR_LOGIN/YOUR_PROJECT.git
+```
+
+И теперь можно все отправить на GitHub:
+
+```{bash, eval = FALSE}
+git push origin master
+```
 
 
 ```{r clean_after_yourself, include=FALSE}
