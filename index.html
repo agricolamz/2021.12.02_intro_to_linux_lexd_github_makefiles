@@ -286,40 +286,40 @@ index.html
 index.Rmd
 Makefile</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
-<pre><code>total 1136
+<pre><code>total 1140
 -rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1137282 дек  2 17:31 index.html
--rw-rw-r-- 1 agricolamz agricolamz   15841 дек  2 17:39 index.Rmd
+-rw-rw-r-- 1 agricolamz agricolamz 1137328 дек  2 17:40 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   16589 дек  2 17:46 index.Rmd
 -rw-rw-r-- 1 agricolamz agricolamz     140 дек  2 15:28 Makefile</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:31 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:40 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:31 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:31 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:39 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:46 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:40 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:46 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:31 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:40 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:31 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:31 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:39 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:46 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:40 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:46 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:31 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:40 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:31 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:31 index.html
--rw-rw-r--   1 agricolamz agricolamz  16K дек  2 17:39 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:46 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:40 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:46 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
@@ -636,7 +636,15 @@ and.noun.generator.hfst: and.noun.lexd
 <p>Сначала нужно создать репозиторий, потом следует пойти в папку с вашим проектом, и нужно сказать</p>
 <pre class="bash"><code>$ git init</code></pre>
 <pre><code>Initialized empty Git repository in /your/directory/foo/.git/</code></pre>
-<p>Теперь нужно добавить</p>
+<p>Теперь можно добавить все файлы в индекс <code>git</code>:</p>
+<pre class="bash"><code>$ git add --all</code></pre>
+<p>Теперь можно отправить файлы с некоторым сообщением про изменения:</p>
+<pre class="bash"><code>$ git commit -m &quot;first commit&quot;</code></pre>
+<p>После этого следует связать ваш локальный репозиторий на компьютере с репозиторием на гитхабе:</p>
+<pre class="bash"><code>$ git remote add origin https://github.com/YOUR_LOGIN/YOUR_PROJECT.git</code></pre>
+<p>И теперь можно все отправить на GitHub:</p>
+<pre class="bash"><code>$ git push origin master</code></pre>
+<p>Теперь ваш репозиторий на GitHub должен обновиться.</p>
 </div>
 </div>
 <div class="footnotes">

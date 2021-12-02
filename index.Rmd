@@ -403,6 +403,7 @@ git remote add origin https://github.com/YOUR_LOGIN/YOUR_PROJECT.git
 git push origin master
 ```
 
+Теперь ваш репозиторий на GitHub должен обновиться.
 
 ```{r clean_after_yourself, include=FALSE}
 files <- list.files() %in% c("and.noun.lexd", "index.Rmd", "index.html", "Makefile")
