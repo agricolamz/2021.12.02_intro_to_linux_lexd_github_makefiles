@@ -179,9 +179,9 @@ sudo apt-get install lexd
 | берку-ъо      | berku-ʔo       | змея.OBL-SUPER.LATIVE  |
 | берку-ъа-кку  | berku-ʔa-kːu   | змея.OBL-SUPER-ELATIVE |
 
-Файл для `lexd` представляет собой обычный текстовый файл в котором содержатся разделы `PATTERNS` и `LEXICON` (я дальше запишу его в файл `and-noun.lexd`):
+Файл для `lexd` представляет собой обычный текстовый файл в котором содержатся разделы `PATTERNS` и `LEXICON` (я дальше запишу его в файл `and.noun.lexd`):
 
-```and-noun.lexd
+```and.noun.lexd
 PATTERNS
 NounAbs Abs
 NounObl NounInfl
@@ -216,42 +216,42 @@ LEXICON Elative
 Полученный файл можно скомпилировать в формат трансдьюссера:
 
 ```{bash}
-lexd and-noun.lexd
+lexd and.noun.lexd
 ```
 
 Обычно после преобразования полученное может быть использовано [инструментами hfst](https://wiki.apertium.org/wiki/Hfst) для работы с трансдьюссарами:
 
 ```{bash}
-lexd and-noun.lexd | hfst-txt2fst -o and-noun-generator.hfst
+lexd and.noun.lexd | hfst-txt2fst -o and.noun.generator.hfst
 ```
 
 Можно посмотреть, что получилось:
 
 ```{bash}
-hfst-fst2strings and-noun-generator.hfst
+hfst-fst2strings and.noun.generator.hfst
 ```
 
 Можно посмотреть не все возможные формы, а только интересующие нас, например:
 
 ```{bash}
-echo 'берка<n><obl><sub><lative>' | hfst-lookup and-noun-generator.hfst
+echo 'берка<n><obl><sub><lative>' | hfst-lookup and.noun.generator.hfst
 ```
 
 Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно иинвертировать:
 
 ```{bash}
-hfst-invert and-noun-generator.hfst -o and-noun-analizer.hfst
+hfst-invert and.noun.generator.hfst -o and.noun.analizer.hfst
 ```
 
 И теперь мы можем получить анализ:
 
 ```{bash}
-echo 'беркулIи' | hfst-lookup and-noun-analizer.hfst
+echo 'беркулIи' | hfst-lookup and.noun.analizer.hfst
 ```
 
 Читая [туториал к lexd](https://github.com/apertium/lexd/blob/master/Usage.md), можно найти несколько способов оптимизировать наш исходный код:
 
-```and-noun.lexd
+```and.noun.lexd
 PATTERNS
 NounAbs [<n>:] Abs
 NounObl [<n>:] [<obl>:] (NounInfl) | (NounInflEssive Elative?)
@@ -286,11 +286,12 @@ LEXICON Elative
 
 # Введение в `make`
 
-Мы видели, что чтобы скомпилировать 
+Мы видели, что чтобы скомпилировать анализатор и генератор форм нужен лишь маленький `.lexd` файл, который занимает всего 382 байта (в то время как бинарники весят 1240 байтов и 1730 байтов). В нашем случае, чтобы их сгенерировать нужно было всего две команды, однако на практике получаются куда более многоступенчатые процессы с массой промежуточных файлов. Инструкции по их созданию обычно записывают в файл, который называется `Makefile` (обратите внимание, что первая буква большая).
+
 
 # Введение в `git`
 
-```{r, include=FALSE}
-files <- list.files() %in% c("and-noun.lexd", "index.Rmd", "index.html")
+```{r clean_after_yourself, include=FALSE}
+files <- list.files() %in% c("and.noun.lexd", "index.Rmd", "index.html")
 lapply(list.files()[!files], file.remove)
 ```

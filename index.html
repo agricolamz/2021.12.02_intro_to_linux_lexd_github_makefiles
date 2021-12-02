@@ -281,53 +281,53 @@ echo &quot;Nice to meet you $name&quot;</code></pre>
 <h2 number="1.2"><span class="header-section-number">1.2</span> Консольные программы</h2>
 <p>Для <code>bash</code> написано очень много самых разных программ. Важно понимать, что их все (естественно, после установки, если это необходимо) можно вызвать набрав в консоли название программы. Очень важно понимать, что у большинства программ есть какие-то аргументы (почему-то их принято называть флагами), которые перечисляют после минуса.</p>
 <pre class="bash"><code>$ ls</code></pre>
-<pre><code>and-noun.lexd
+<pre><code>and.noun.lexd
 index.html
 index.Rmd</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
 <pre><code>total 1060
--rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and-noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1065280 дек  2 14:46 index.html
--rw-rw-r-- 1 agricolamz agricolamz   10832 дек  2 14:49 index.Rmd</code></pre>
+-rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
+-rw-rw-r-- 1 agricolamz agricolamz 1065378 дек  2 14:50 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   11702 дек  2 15:02 index.Rmd</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
 <pre><code>total 1,1M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 14:46 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 15:01 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
--rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and-noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  1 20:40 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 14:46 index.html
--rw-rw-r--   1 agricolamz agricolamz  11K дек  2 14:49 index.Rmd</code></pre>
+-rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 14:53 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 14:50 index.html
+-rw-rw-r--   1 agricolamz agricolamz  12K дек  2 15:02 index.Rmd</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
 <pre><code>total 1,1M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 14:46 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 15:01 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
--rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and-noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  1 20:40 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 14:46 index.html
--rw-rw-r--   1 agricolamz agricolamz  11K дек  2 14:49 index.Rmd</code></pre>
+-rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 14:53 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 14:50 index.html
+-rw-rw-r--   1 agricolamz agricolamz  12K дек  2 15:02 index.Rmd</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
 <pre><code>total 1,1M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 14:46 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 15:01 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
--rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and-noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  1 20:40 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 14:46 index.html
--rw-rw-r--   1 agricolamz agricolamz  11K дек  2 14:49 index.Rmd</code></pre>
+-rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 14:53 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 14:50 index.html
+-rw-rw-r--   1 agricolamz agricolamz  12K дек  2 15:02 index.Rmd</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
 <pre><code>.
 ..
-and-noun.lexd
+and.noun.lexd
 .git
 index.html
 index.Rmd</code></pre>
 <pre class="bash"><code>$ ls -a</code></pre>
 <pre><code>.
 ..
-and-noun.lexd
+and.noun.lexd
 .git
 index.html
 index.Rmd</code></pre>
@@ -438,8 +438,8 @@ index.Rmd</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Файл для <code>lexd</code> представляет собой обычный текстовый файл в котором содержатся разделы <code>PATTERNS</code> и <code>LEXICON</code> (я дальше запишу его в файл <code>and-noun.lexd</code>):</p>
-<pre class="and-noun.lexd"><code>PATTERNS
+<p>Файл для <code>lexd</code> представляет собой обычный текстовый файл в котором содержатся разделы <code>PATTERNS</code> и <code>LEXICON</code> (я дальше запишу его в файл <code>and.noun.lexd</code>):</p>
+<pre class="and.noun.lexd"><code>PATTERNS
 NounAbs Abs
 NounObl NounInfl
 NounObl NounInflE__ive
@@ -468,7 +468,7 @@ LEXICON NounInflE__ive
 LEXICON Elative
 &lt;elative&gt;:кку</code></pre>
 <p>Полученный файл можно скомпилировать в формат трансдьюссера:</p>
-<pre class="bash"><code>$ lexd and-noun.lexd</code></pre>
+<pre class="bash"><code>$ lexd and.noun.lexd</code></pre>
 <pre><code>0   1   б   б   0.000000    
 1   2   е   е   0.000000    
 2   3   р   р   0.000000    
@@ -496,9 +496,9 @@ LEXICON Elative
 9   0.000000
 16  0.000000</code></pre>
 <p>Обычно после преобразования полученное может быть использовано <a href="https://wiki.apertium.org/wiki/Hfst">инструментами hfst</a> для работы с трансдьюссарами:</p>
-<pre class="bash"><code>$ lexd and-noun.lexd | hfst-txt2fst -o and-noun-generator.hfst</code></pre>
+<pre class="bash"><code>$ lexd and.noun.lexd | hfst-txt2fst -o and.noun.generator.hfst</code></pre>
 <p>Можно посмотреть, что получилось:</p>
-<pre class="bash"><code>$ hfst-fst2strings and-noun-generator.hfst</code></pre>
+<pre class="bash"><code>$ hfst-fst2strings and.noun.generator.hfst</code></pre>
 <pre><code>берка&lt;n&gt;&lt;abs&gt;:берка
 берка&lt;n&gt;&lt;obl&gt;&lt;erg&gt;:беркуди
 берка&lt;n&gt;&lt;obl&gt;&lt;ins&gt;:беркухъи
@@ -509,16 +509,16 @@ LEXICON Elative
 берка&lt;n&gt;&lt;obl&gt;&lt;super&gt;&lt;essive&gt;:беркуъа
 берка&lt;n&gt;&lt;obl&gt;&lt;super&gt;&lt;essive&gt;&lt;elative&gt;:беркуъакку</code></pre>
 <p>Можно посмотреть не все возможные формы, а только интересующие нас, например:</p>
-<pre class="bash"><code>$ echo &#39;берка&lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;lative&gt;&#39; | hfst-lookup and-noun-generator.hfst</code></pre>
+<pre class="bash"><code>$ echo &#39;берка&lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;lative&gt;&#39; | hfst-lookup and.noun.generator.hfst</code></pre>
 <pre><code>hfst-lookup: warning: It is not possible to perform fast lookups with OpenFST, std arc, tropical semiring format automata.
 Using HFST basic transducer format and performing slow lookups
 &gt; берка&lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;lative&gt;    беркулIи    0,000000
 
 &gt; </code></pre>
 <p>Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно иинвертировать:</p>
-<pre class="bash"><code>$ hfst-invert and-noun-generator.hfst -o and-noun-analizer.hfst</code></pre>
+<pre class="bash"><code>$ hfst-invert and.noun.generator.hfst -o and.noun.analizer.hfst</code></pre>
 <p>И теперь мы можем получить анализ:</p>
-<pre class="bash"><code>$ echo &#39;беркулIи&#39; | hfst-lookup and-noun-analizer.hfst</code></pre>
+<pre class="bash"><code>$ echo &#39;беркулIи&#39; | hfst-lookup and.noun.analizer.hfst</code></pre>
 <pre><code>hfst-lookup: warning: It is not possible to perform fast lookups with OpenFST, std arc, tropical semiring format automata.
 Using HFST basic transducer format and performing slow lookups
 &gt; беркулIи  берка&lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;essive&gt;  0,000000
@@ -526,7 +526,7 @@ Using HFST basic transducer format and performing slow lookups
 
 &gt; </code></pre>
 <p>Читая <a href="https://github.com/apertium/lexd/blob/master/Usage.md">туториал к lexd</a>, можно найти несколько способов оптимизировать наш исходный код:</p>
-<pre class="and-noun.lexd"><code>PATTERNS
+<pre class="and.noun.lexd"><code>PATTERNS
 NounAbs [&lt;n&gt;:] Abs
 NounObl [&lt;n&gt;:] [&lt;obl&gt;:] (NounInfl) | (NounInflEssive Elative?)
 
@@ -563,7 +563,7 @@ LEXICON Elative
 </div>
 <div id="введение-в-make" class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> Введение в <code>make</code></h1>
-<p>Разумные</p>
+<p>Мы видели, что чтобы скомпилировать анализатор и генератор форм нужен лишь маленький <code>.lexd</code> файл, который занимает всего 382 байта (в то время как бинарники весят 1240 байтов и 1730 байтов). В нашем случае, чтобы их сгенерировать нужно было всего две команды, однако на практике получаются куда более многоступенчатые процессы с массой промежуточных файлов. Инструкции по их созданию обычно записывают в файл, который называется <code>Makefile</code> (обратите внимание, что первая буква большая).</p>
 </div>
 <div id="введение-в-git" class="section level1" number="4">
 <h1 number="4"><span class="header-section-number">4</span> Введение в <code>git</code></h1>
