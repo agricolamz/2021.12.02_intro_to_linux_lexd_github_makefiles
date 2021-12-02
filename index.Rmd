@@ -1,6 +1,6 @@
 ---
 title: "Введение в Linux, `lexd`, `make` и `git`"
-author: "G. Moroz"
+author: "Г. Мороз, Н. Хауэлл"
 date: "2 декабря 2021"
 output: 
   html_document:

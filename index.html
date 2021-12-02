@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="G. Moroz" />
+<meta name="author" content="Г. Мороз, Н. Хауэлл" />
 
 
 <title>Введение в Linux, lexd, make и git</title>
@@ -241,7 +241,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Введение в Linux, <code>lexd</code>, <code>make</code> и <code>git</code></h1>
-<h4 class="author">G. Moroz</h4>
+<h4 class="author">Г. Мороз, Н. Хауэлл</h4>
 <h4 class="date">2 декабря 2021</h4>
 
 </div>
@@ -288,38 +288,38 @@ Makefile</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
 <pre><code>total 1140
 -rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1137328 дек  2 17:40 index.html
--rw-rw-r-- 1 agricolamz agricolamz   16589 дек  2 17:46 index.Rmd
+-rw-rw-r-- 1 agricolamz agricolamz 1138165 дек  2 17:46 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   16613 дек  2 17:51 index.Rmd
 -rw-rw-r-- 1 agricolamz agricolamz     140 дек  2 15:28 Makefile</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:40 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:46 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
 drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:46 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:40 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:46 index.Rmd
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:46 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:51 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:40 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:46 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
 drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:46 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:40 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:46 index.Rmd
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:46 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:51 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:40 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:46 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
 drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:46 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:40 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:46 index.Rmd
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:46 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:51 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
