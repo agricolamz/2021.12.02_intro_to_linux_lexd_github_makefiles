@@ -100,7 +100,7 @@ ls --all
 ls -a
 ```
 
-Чтобы узнать какие у программы есть флаги, чаще всего можно либо добавить флаг `--help`, либо использовать программу `man`. Еще есть полезная программа `tldr`, которая дает краткое саммари и примеры, однако она требует установки.
+Чтобы узнать какие у программы есть флаги, чаще всего можно либо добавить флаг `--help`, либо использовать программу `man`. Еще есть полезная программа `tldr`, которая дает краткое саммари и примеры, однако она требует установки и краткая версия справки есть не про все.
 
 [//]: # (ГМ: почему-то `tldr` добавляет время, когда исполняется внутри Rmd...)
 
@@ -144,6 +144,12 @@ python -c "print unichr(234)"
 R --silent -e "Sys.Date()"
 ```
 
+Достаточно часто в инструкциях с короткими командами для командной строки можно увидеть пайп (по-русски его иногда зовут конвеером), оператор, который передает результат работы одной функции в другую программу. В `bash` это `|`.
+
+```{bash}
+ls | grep "index"
+```
+
 # Введение в `lexd`
 
 [`lexd`](https://github.com/apertium/lexd) --- это программа для описания морфонологии языка, разработанная в [apertium](https://apertium.org) (для этой цели также используют программы [`lexc` и `lttoolbox`](https://wiki.apertium.org/wiki/Lttoolbox_and_lexc)).
@@ -159,21 +165,132 @@ sudo apt-get install lexd
 
 ## Пример использования
 
-Давайте попробуем смоделировать следующие данные:
+Давайте попробуем смоделировать следующие данные андийского языка:
 
 | cyryllic      | IPA            | gloss                  |
 |---------------|----------------|------------------------|
 | берка         | berka          | змея-ABS               |
 | берку-ди      | berku-di       | змея.OBL-ERG           |
-| берку-хъи     | berku-qχi      | змея.OBL-INSTR         |
-| берку-лIи     | berku-tɬ’i     | змея.OBL-SUB-ESSIVE    |
-| берку-лIи     | berku-tɬ’i     | змея.OBL-SUB-LATIVE    |
+| берку-хъи     | berku-qχi      | змея.OBL-INS           |
+| берку-лIи     | berku-tɬ’i     | змея.OBL-SUB.ESSIVE    |
+| берку-лIи     | berku-tɬ’i     | змея.OBL-SUB.LATIVE    |
 | берку-лIи-кку | berku-tɬ’i-kːu | змея.OBL-SUB-ELATIVE   |
-| берку-ъа      | berku-ʔa       | змея.OBL-SUPER-ESSIVE  |
-| берку-ъо      | berku-ʔo       | змея.OBL-SUPER-LATIVE  |
+| берку-ъа      | berku-ʔa       | змея.OBL-SUPER.ESSIVE  |
+| берку-ъо      | berku-ʔo       | змея.OBL-SUPER.LATIVE  |
 | берку-ъа-кку  | berku-ʔa-kːu   | змея.OBL-SUPER-ELATIVE |
 
+Файл для `lexd` представляет собой обычный текстовый файл в котором содержатся разделы `PATTERNS` и `LEXICON` (я дальше запишу его в файл `and-noun.lexd`):
+
+```and-noun.lexd
+PATTERNS
+NounAbs Abs
+NounObl NounInfl
+NounObl NounInflE__ive
+NounObl NounInflE__ive Elative
+
+LEXICON NounAbs
+берка # змея
+
+LEXICON NounObl
+берка:берку # змея
+
+LEXICON Abs
+<n><abs>:
+
+LEXICON NounInfl
+<n><obl><erg>:ди
+<n><obl><ins>:хъи
+<n><obl><sub><lative>:лIи
+
+<n><obl><super><lative>:ъо
+
+LEXICON NounInflE__ive
+<n><obl><super><essive>:ъа
+<n><obl><sub><essive>:лIи
+
+LEXICON Elative
+<elative>:кку
+```
+
+
+Полученный файл можно скомпилировать в формат трансдьюссера:
+
+```{bash}
+lexd and-noun.lexd
+```
+
+Обычно после преобразования полученное может быть использовано [инструментами hfst](https://wiki.apertium.org/wiki/Hfst) для работы с трансдьюссарами:
+
+```{bash}
+lexd and-noun.lexd | hfst-txt2fst -o and-noun-generator.hfst
+```
+
+Можно посмотреть, что получилось:
+
+```{bash}
+hfst-fst2strings and-noun-generator.hfst
+```
+
+Можно посмотреть не все возможные формы, а только интересующие нас, например:
+
+```{bash}
+echo 'берка<n><obl><sub><lative>' | hfst-lookup and-noun-generator.hfst
+```
+
+Но как же анализировать формы? Трансдьюссоры обладают отличным свойством: их можно иинвертировать:
+
+```{bash}
+hfst-invert and-noun-generator.hfst -o and-noun-analizer.hfst
+```
+
+И теперь мы можем получить анализ:
+
+```{bash}
+echo 'беркулIи' | hfst-lookup and-noun-analizer.hfst
+```
+
+Читая [туториал к lexd](https://github.com/apertium/lexd/blob/master/Usage.md), можно найти несколько способов оптимизировать наш исходный код:
+
+```and-noun.lexd
+PATTERNS
+NounAbs [<n>:] Abs
+NounObl [<n>:] [<obl>:] (NounInfl) | (NounInflEssive Elative?)
+
+LEXICON NounAbs
+берка # змея
+
+LEXICON NounObl
+берка:берку # змея
+
+LEXICON Abs
+<abs>:
+
+LEXICON NounInfl
+<erg>:ди
+<ins>:хъи
+<sub><lative>:лIи
+<super><lative>:ъо
+
+LEXICON NounInflEssive
+<super><essive>:ъа
+<sub><essive>:лIи
+
+LEXICON Elative
+<elative>:кку
+```
+## Упражнение
+
+* добавьте еще один корень *ustul*/*ustulu*- 'стул';
+* добавьте показатель датива *-j* и *-ɬu*;
+* добавьте показатели AD.ESSIVE *-χa*, AD.LATIVE *-χo*,  AD.ELLATIVE *-χa-kːu* 
+
+# Введение в `make`
+
+Мы видели, что чтобы скомпилировать 
 
 # Введение в `git`
 
-# Введение в `make`
+```{r, include=FALSE}
+files <- list.files() %in% c("and-noun.lexd", "index.Rmd", "index.html")
+lapply(list.files()[!files], file.remove)
+```
