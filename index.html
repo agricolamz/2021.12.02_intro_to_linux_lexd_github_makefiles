@@ -274,57 +274,69 @@ echo &quot;Please enter your name: &quot;
 read name
 echo &quot;Nice to meet you $name&quot;</code></pre>
 <p>Если вы запишите эту программу в файл <code>my_script.sh</code>, то ее потом можно вызвать следующей командой</p>
-<pre class="bash"><code>$ my_script.sh</code></pre>
+<pre class="bash"><code>$ sh my_script.sh</code></pre>
 <p>В интернете много ресурсов для изучения <code>bash</code>, но вам не придется писать на нем программ (но придется запускать), так что посвящать время его дальнейшому изучению – дело исключительно добровольное.</p>
 </div>
 <div id="консольные-программы" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Консольные программы</h2>
 <p>Для <code>bash</code> написано очень много самых разных программ. Важно понимать, что их все (естественно, после установки, если это необходимо) можно вызвать набрав в консоли название программы. Очень важно понимать, что у большинства программ есть какие-то аргументы (почему-то их принято называть флагами), которые перечисляют после минуса.</p>
 <pre class="bash"><code>$ ls</code></pre>
-<pre><code>and.noun.lexd
+<pre><code>and.noun.analizer.hfst
+and.noun.generator.hfst
+and.noun.lexd
 index.html
 index.Rmd
 Makefile</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
-<pre><code>total 1140
+<pre><code>total 1148
+-rw-rw-r-- 1 agricolamz agricolamz    1730 дек  2 22:06 and.noun.analizer.hfst
+-rw-rw-r-- 1 agricolamz agricolamz    1240 дек  2 22:06 and.noun.generator.hfst
 -rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1138213 дек  2 17:51 index.html
--rw-rw-r-- 1 agricolamz agricolamz   16655 дек  2 17:55 index.Rmd
+-rw-rw-r-- 1 agricolamz agricolamz 1138310 дек  2 17:55 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   16663 дек  3 09:52 index.Rmd
 -rw-rw-r-- 1 agricolamz agricolamz     140 дек  2 15:28 Makefile</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:51 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 22:47 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
+-rw-rw-r--   1 agricolamz agricolamz 1,7K дек  2 22:06 and.noun.analizer.hfst
+-rw-rw-r--   1 agricolamz agricolamz 1,3K дек  2 22:06 and.noun.generator.hfst
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:51 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:51 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:55 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:57 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:55 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  3 09:52 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:51 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 22:47 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
+-rw-rw-r--   1 agricolamz agricolamz 1,7K дек  2 22:06 and.noun.analizer.hfst
+-rw-rw-r--   1 agricolamz agricolamz 1,3K дек  2 22:06 and.noun.generator.hfst
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:51 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:51 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:55 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:57 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:55 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  3 09:52 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
 <pre><code>total 1,2M
-drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 17:51 .
+drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  2 22:47 .
 drwxr-xr-x 197 agricolamz agricolamz  20K дек  1 08:38 ..
+-rw-rw-r--   1 agricolamz agricolamz 1,7K дек  2 22:06 and.noun.analizer.hfst
+-rw-rw-r--   1 agricolamz agricolamz 1,3K дек  2 22:06 and.noun.generator.hfst
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:51 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:51 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  2 17:55 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  2 17:57 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  2 17:55 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  3 09:52 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги различаются по длинне. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
 <pre><code>.
 ..
+and.noun.analizer.hfst
+and.noun.generator.hfst
 and.noun.lexd
 .git
 index.html
@@ -333,6 +345,8 @@ Makefile</code></pre>
 <pre class="bash"><code>$ ls -a</code></pre>
 <pre><code>.
 ..
+and.noun.analizer.hfst
+and.noun.generator.hfst
 and.noun.lexd
 .git
 index.html
@@ -368,7 +382,7 @@ List directory contents.
 <pre><code>ê</code></pre>
 <pre class="bash"><code>$ R --silent -e &quot;Sys.Date()&quot;</code></pre>
 <pre><code>&gt; Sys.Date()
-[1] &quot;2021-12-02&quot;
+[1] &quot;2021-12-03&quot;
 &gt; 
 &gt; </code></pre>
 <p>Достаточно часто в инструкциях с короткими командами для командной строки можно увидеть пайп (по-русски его иногда зовут конвеером), оператор, который передает результат работы одной функции в другую программу. В <code>bash</code> это <code>|</code>.</p>
@@ -465,7 +479,6 @@ LEXICON NounInfl
 &lt;n&gt;&lt;obl&gt;&lt;erg&gt;:ди
 &lt;n&gt;&lt;obl&gt;&lt;ins&gt;:хъи
 &lt;n&gt;&lt;obl&gt;&lt;sub&gt;&lt;lative&gt;:лIи
-
 &lt;n&gt;&lt;obl&gt;&lt;super&gt;&lt;lative&gt;:ъо
 
 LEXICON NounInflEssive
@@ -583,7 +596,8 @@ and.noun.generator.hfst: and.noun.lexd
 <pre class="bash"><code>$ rm and.noun.generator.hfst and.noun.analyzer.hfst</code></pre>
 <p>Посмотрим на список файлов:</p>
 <pre class="bash"><code>$ ls</code></pre>
-<pre><code>and.noun.lexd
+<pre><code>and.noun.analizer.hfst
+and.noun.lexd
 index.html
 index.Rmd
 Makefile</code></pre>
@@ -632,9 +646,9 @@ and.noun.generator.hfst: and.noun.lexd
 <p>Это все, что нужно знать, чтобы скопировать весь проект лежащий на гитхабе:</p>
 <pre class="bash"><code>$ git clone https://github.com/apertium/lexd</code></pre>
 </div>
-<div id="создание-совего-репозитория" class="section level2" number="4.3">
-<h2 number="4.3"><span class="header-section-number">4.3</span> Создание совего репозитория</h2>
-<p>Сначала нужно создать репозиторий, потом следует пойти в папку с вашим проектом, и нужно сказать</p>
+<div id="создание-своего-репозитория" class="section level2" number="4.3">
+<h2 number="4.3"><span class="header-section-number">4.3</span> Создание своего репозитория</h2>
+<p>Сначала нужно создать репозиторий, потом следует пойти в папку с вашим проектом и написать команду:</p>
 <pre class="bash"><code>$ git init</code></pre>
 <pre><code>Initialized empty Git repository in /your/directory/foo/.git/</code></pre>
 <p>Теперь можно добавить все файлы в индекс <code>git</code>:</p>
