@@ -286,10 +286,10 @@ index.html
 index.Rmd
 Makefile</code></pre>
 <pre class="bash"><code>$ ls -l</code></pre>
-<pre><code>total 1144
+<pre><code>total 1140
 -rw-rw-r-- 1 agricolamz agricolamz     382 дек  2 14:38 and.noun.lexd
--rw-rw-r-- 1 agricolamz agricolamz 1139136 дек  3 09:52 index.html
--rw-rw-r-- 1 agricolamz agricolamz   16655 дек  6 11:14 index.Rmd
+-rw-rw-r-- 1 agricolamz agricolamz 1138310 дек  6 11:14 index.html
+-rw-rw-r-- 1 agricolamz agricolamz   16675 дек  8 12:52 index.Rmd
 -rw-rw-r-- 1 agricolamz agricolamz     140 дек  2 15:28 Makefile</code></pre>
 <p>Флагов может быть больше одного:</p>
 <pre class="bash"><code>$ ls -l -a -h</code></pre>
@@ -297,9 +297,9 @@ Makefile</code></pre>
 drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  6 11:14 .
 drwxr-xr-x 198 agricolamz agricolamz  20K дек  5 16:58 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:14 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  3 09:52 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  6 11:14 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:15 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  6 11:14 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  8 12:52 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно смешать:</p>
 <pre class="bash"><code>$ ls -lah</code></pre>
@@ -307,9 +307,9 @@ drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:14 .git
 drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  6 11:14 .
 drwxr-xr-x 198 agricolamz agricolamz  20K дек  5 16:58 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:14 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  3 09:52 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  6 11:14 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:15 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  6 11:14 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  8 12:52 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги можно еще смешать:</p>
 <pre class="bash"><code>$ ls -hla</code></pre>
@@ -317,9 +317,9 @@ drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:14 .git
 drwxrwxr-x   3 agricolamz agricolamz 4,0K дек  6 11:14 .
 drwxr-xr-x 198 agricolamz agricolamz  20K дек  5 16:58 ..
 -rw-rw-r--   1 agricolamz agricolamz  382 дек  2 14:38 and.noun.lexd
-drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:14 .git
--rw-rw-r--   1 agricolamz agricolamz 1,1M дек  3 09:52 index.html
--rw-rw-r--   1 agricolamz agricolamz  17K дек  6 11:14 index.Rmd
+drwxrwxr-x   8 agricolamz agricolamz 4,0K дек  6 11:15 .git
+-rw-rw-r--   1 agricolamz agricolamz 1,1M дек  6 11:14 index.html
+-rw-rw-r--   1 agricolamz agricolamz  17K дек  8 12:52 index.Rmd
 -rw-rw-r--   1 agricolamz agricolamz  140 дек  2 15:28 Makefile</code></pre>
 <p>Флаги различаются по длине. Однобуквенные флаги можно перечислить вместе после минуса. Однако бывают длинные флаги, и для того, чтобы отличить их от комбинации коротких флагов, ставят два минуса:</p>
 <pre class="bash"><code>$ ls --all</code></pre>
@@ -368,7 +368,7 @@ List directory contents.
 <pre><code>ê</code></pre>
 <pre class="bash"><code>$ R --silent -e &quot;Sys.Date()&quot;</code></pre>
 <pre><code>&gt; Sys.Date()
-[1] &quot;2021-12-06&quot;
+[1] &quot;2021-12-08&quot;
 &gt; 
 &gt; </code></pre>
 <p>Достаточно часто в инструкциях с короткими командами для командной строки можно увидеть пайп (по-русски его иногда зовут конвеером), оператор, который передает результат работы одной функции в другую программу. В <code>bash</code> это <code>|</code>.</p>
@@ -561,9 +561,9 @@ LEXICON Elative
 <div id="упражнение" class="section level2" number="2.3">
 <h2 number="2.3"><span class="header-section-number">2.3</span> Упражнение</h2>
 <ul>
-<li>добавьте еще один корень <em>ustul</em>/<em>ustulu</em>- ‘стул’;</li>
-<li>добавьте показатель датива <em>-j</em> и <em>-ɬu</em>;</li>
-<li>добавьте показатели AD.ESSIVE <em>-χa</em>, AD.LATIVE <em>-χo</em>, AD.ELLATIVE <em>-χa-kːu</em></li>
+<li>добавьте еще один корень <em>устул</em>/<em>устулу</em>- ‘стул’;</li>
+<li>добавьте показатель датива <em>-й</em> и <em>-лъу</em>;</li>
+<li>добавьте показатели AD.ESSIVE <em>-ха</em>, AD.LATIVE <em>-хо</em>, AD.ELLATIVE <em>-ха-кку</em></li>
 </ul>
 </div>
 </div>
